@@ -72,6 +72,8 @@
             },
             error: function(er) {
                 console.log(er);
+                console.log(er.responseText);
+
             }
         });
 
@@ -83,10 +85,13 @@
             {
                 console.log(data.length);
                 console.log(data);
-                // console.log(data[0].domains);
+                for (let index = 0; index < data.length; index++) {
+                    $("#selectTemplate").append("<option value='" + data[index].template_name + "'>" + data[index].template_name + "</option>");
+                }
             },
             error: function(er) {
                 console.log(er);
+                console.log(er.responseText);
             }
         });
 
@@ -95,6 +100,10 @@
             if (domainValue == "") {} else {
                 console.log(domainValue);
             }
+        });
+
+        $("#selectTemplate").change(function() {
+            
         });
     });
 </script>
