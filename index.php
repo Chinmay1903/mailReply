@@ -42,7 +42,6 @@
                         <label for="selectTemplate">Templates</label>
                         <select id="selectTemplate" class="form-control">
                             <option selected value="">Choose...</option>
-                            <option>...</option>
                         </select>
                     </div>
                 </div>
