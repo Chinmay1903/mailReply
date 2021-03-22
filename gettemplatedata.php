@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$user = "root";
-$pass = "";
+$user = "Developer";
+$pass = "19031996";
 $databaseName = "reply_mail";
 $mysqli = new mysqli($host, $user, $pass, $databaseName);
 if ($mysqli->connect_errno) {
