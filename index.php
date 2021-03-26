@@ -100,7 +100,7 @@
             type: "POST",
             url: 'gettemplatedata.php', //the script to call to get data     
             dataType: 'json',
-            success: function(data) //on recieve of reply
+            success: function(data) //on recieve of reply   
             {
                 // console.log(data.length);
                 // console.log(data);
@@ -212,6 +212,7 @@
             }
 
             console.log(sname, mail, dname, tname);
+            $("#alert").removeClass("show");
             $("#sendmail").html('Sending Mail...<div id="loader" class="spinner-border spinner-border-sm text-light ml-2"  role="status"><span class="sr-only">Loading...</span></div>');
 
             $.ajax({
@@ -231,6 +232,18 @@
                     if(data==1){
                         $("#sendmail").html('Send Mail');
                         $("#alert").addClass("show");
+                        $("#selectTemplate").removeClass("is-valid");
+                        $("#msg4").removeClass("valid-feedback");
+                        $("#selectDomain").removeClass("is-valid");
+                        $("#msg3").removeClass("valid-feedback");
+                        $("#sendersmail").removeClass("is-valid");
+                        $("#msg2").removeClass("valid-feedback");
+                        $("#sendersname").removeClass("is-valid");
+                        $("#msg1").removeClass("valid-feedback");
+                        $("#msg1").html('');
+                        $("#msg2").html('');
+                        $("#msg3").html('');
+                        $("#msg4").html('');
                     }
                 },
                 error: function(er) {
@@ -242,6 +255,7 @@
 
         $("#alertclose").click(function(){
             $("#alert").removeClass("show");
+            
         })
     });
 </script>

@@ -6,7 +6,7 @@ $Name = $_POST["name"] ;
 $ToAddress = $_POST["mail"];
 $domain = $_POST["domain"];
 $templatename = $_POST["template"];
-$SignatureForDomain = "Please reply and let me know if this helped - BestVAMortgageRates.com Support";
+// $SignatureForDomain = "Please reply and let me know if this helped - BestVAMortgageRates.com Support";
 
 switch ($domain) {
     case "insider@theemortgage.com":
@@ -84,17 +84,76 @@ switch ($domain) {
     $domainname = "NewLifeSeries.com";
     }
 
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit();
-}
+    switch ($domain) {
+
+        case "insider@theemortgage.com":
+        $AddressSpecificToEmailAccount = "3556 S 5600 W # 1 - 1139 Salt Lake City 84120, Utah";
+        break;
+        
+        case "guide@incentiveshow.com":
+        $AddressSpecificToEmailAccount = "34 N Franklin Ave, Suite #687 1402 Pinedale, 89241, Wyoming";
+        break;
+        
+        case "insider@cshowcase.com":
+        $AddressSpecificToEmailAccount = "100- 24th Street W. # 1- 2002 Billings 11205 Montana";
+        break;
+        
+        case "outlooks@occucom.com":
+        $AddressSpecificToEmailAccount = "9 N River Road #402 - Auburn 04210 Maine";
+        break;
+        
+        case "yourguide@webwad.com":
+        $AddressSpecificToEmailAccount = "27708 Tomball Parkway 1003 Tomball, 77375, Texas";
+        break;
+        
+        case "salute@bestvamortgagerates.com":
+        $AddressSpecificToEmailAccount = "526 North St Cloud St. Suite #506 Allentown PA  18104";
+        break;
+        
+        
+        case "experts@bestworldfinancial.com":
+        $AddressSpecificToEmailAccount = "100- 24th Street W. # 1- 2002 Billings 11205 Montana";
+        break;
+        
+        case "advisors@cruisincompany.com":
+        $AddressSpecificToEmailAccount = "100- 24th Street W. # 1- 2002 Billings 11205 Montana";
+        break;
+        
+        case "insider@myownauto.com":
+        $AddressSpecificToEmailAccount = "2501 NE 23 Road, Suite # A 138 Oklahoma 73111 Oklahoma";
+        break;
+        
+        case "yourguide@homeservicesnet.com":
+        $AddressSpecificToEmailAccount = "9 N River Road #402 - Auburn 04210 Maine";
+        break;
+        
+        case "info@contralabel.com":
+        $AddressSpecificToEmailAccount = "115 E​lm Street | Suite I 3​08 | Farmi​ngton, MN | 55​024";
+        break;
+        
+        case "hellohello@forwardpositive.com":
+        $AddressSpecificToEmailAccount = "5307 Victoria Drive #395 Vancouver, BC V5P 3V6";
+        break;
+        
+        case "heretohelp@nothnaglemortgage.com":
+        $AddressSpecificToEmailAccount = "34 N Franklin Ave, Suite #687 1402 Pinedale, 89241, Wyoming";
+        break;
+        
+        case "citizen@survivalsystemsint.com":
+        $AddressSpecificToEmailAccount = "115 Elm Suite # I-308 Farmington 55024 Minnesota";
+        break;
+        
+        case "hereforyou@newlifeseries.com":
+        $AddressSpecificToEmailAccount = "34 N Franklin Ave, Suite #687 1402 Pinedale, 89241, Wyoming";
+        }
+
 $result = $mysqli->query("SELECT template_body_text FROM mail_data WHERE template_name= '".$templatename."'"); //query
 $row = $result -> fetch_assoc();
 // echo $row["template_body_text"];
 $body=str_replace("[[Name]]",$Name,$row["template_body_text"]);
 $body=str_replace("[[ToAddress]]",$ToAddress,$body);
 $body=str_replace("[[SignatureForDomain]]",$SignatureForDomain,$body);
-$body=str_replace("[[InsertAddressSpecificToEmailAccount]]",$SignatureForDomain,$body);
+$body=str_replace("[[InsertAddressSpecificToEmailAccount]]",$AddressSpecificToEmailAccount,$body);
 // echo $body;
 // die();
 

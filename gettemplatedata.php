@@ -1,10 +1,6 @@
 <?php
 require "dbcon.php";
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit();
-}
-$result = $mysqli->query("SELECT template_name FROM mail_data"); //query
+$result = $mysqli->query("SELECT * FROM mail_data"); //query
 while ($row = $result->fetch_assoc()) {
     $rows[] = $row;
 }
